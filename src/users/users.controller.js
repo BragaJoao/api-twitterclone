@@ -12,10 +12,18 @@ const createUserController = async (req, res) => {
   }
 
   const foundUser = await userService.findByEmailUserService(email);
+  const foundUserName = await userService.findByUserNameService(username)
+
+
+  if (foundUserName) {
+    return res.status(400).send({
+      message: "Username já existe! ",
+    });
+  }
 
   if (foundUser) {
     return res.status(400).send({
-      message: "Usuário já existe ",
+      message: "Email já foi já foisa usado para cadastro! ",
     });
   }
   const user = await userService
@@ -23,7 +31,7 @@ const createUserController = async (req, res) => {
     .catch((err) => console.log(err.message));
 
   if (!user) {
-    return res.status(400).send({
+    return res.status(500).send({
       message: "Erro ao criar o usuário!",
     });
   }
