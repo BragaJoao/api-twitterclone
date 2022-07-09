@@ -17,11 +17,11 @@ module.exports = (req, res, next) => {
 
   const [scheme, token] = parts;
 
-  if (!/^Bearer^/i.test(scheme)) {
+  if (!/^Bearer$/i.test(scheme)) {
     return res.status(401).send({ message: "Token mal formatado!" });
   }
 
-  jwt.verify(token.process.env.SECRET, async (err, decoded) => {
+  jwt.verify(token, process.env.SECRET, async (err, decoded) => {
     const user = await findByIdUserService(decoded.id);
 
     if (err || !user || !user.id) {

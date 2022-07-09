@@ -4,8 +4,8 @@
   "description": "O projeto tem como objetivo de clonar os requerimentos de back-end do twitter para um front-end já construído.",
   "main": "index.js",
   "scripts": {
-    "Start": "node src/index",
-    "dev": "nodemon src/index"
+    "Start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",

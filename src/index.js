@@ -4,7 +4,7 @@ const cors = require("cors");
 const connectDataBase = require("./database/database");
 const userRoute = require("./users/users.route");
 const authRoute = require("./auth/auth.route");
-const tweetsRoute = require('./tweets/tweet.routes')
+const tweetsRoute = require("./tweets/tweet.routes")
 
 const port = process.env.PORT || 3001;
 const app = express();
